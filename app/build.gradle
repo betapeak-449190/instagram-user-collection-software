@@ -1,0 +1,54 @@
+```groovy
+apply plugin: 'com.android.application'
+
+// Problem: Defining an application ID and version is crucial for app identification in the Play Store.
+// Solution: Here we define a unique application ID and set the initial version for our Instagram user collection software.
+android {
+    compileSdkVersion 33 // Adjust as per the latest SDK version
+    defaultConfig {
+        applicationId "com.madhub.instagramusercollect"
+        minSdkVersion 21 // This ensures compatibility with older devices
+        targetSdkVersion 33 // Targeting the latest version for best performance
+        versionCode 1 // Version code for the app
+        versionName "1.0.0" // Version name displayed to users
+        resConfig "en" // Specifies English as the primary language for resources
+    }
+}
+
+// Problem: Managing dependencies correctly can enhance the app's functionality and reduce errors.
+// Solution: Here we include necessary dependencies that enable automation features and improve user experience.
+dependencies {
+    // This dependency addresses the challenge of network operations and API interactions.
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0' // Retrofit for REST API communication
+
+    // This dependency solves the problem of data persistence, which is critical for maintaining user data.
+    implementation 'androidx.room:room-runtime:2.4.2' // Room for database management
+    kapt 'androidx.room:room-compiler:2.4.2' // Annotation processor for Room
+
+    // This dependency overcomes the limitation of UI design by providing a rich set of material components.
+    implementation 'com.google.android.material:material:1.5.0' // Material design components for better UI
+
+    // This dependency addresses the challenge of handling background operations efficiently.
+    implementation 'androidx.work:work-runtime-ktx:2.7.0' // WorkManager for background task management
+
+    // This dependency enables the integration of social media management functionalities, crucial for a social media app.
+    implementation 'com.github.bumptech.glide:glide:4.12.0' // Glide for image loading and caching
+
+    // This dependency enhances user experience by supporting responsive design.
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4' // ConstraintLayout for flexible layouts
+}
+
+// Problem: Configuring proper task execution ensures that the app runs optimally across different scenarios.
+// Solution: Setting up build features allows customization of the build process.
+android {
+    buildFeatures {
+        viewBinding true // Enables view binding to reduce boilerplate code
+    }
+}
+
+// Problem: To maintain 24/7 automated operations, we need to prepare the app for continuous background processes.
+// Solution: Using the WorkManager ensures that the app can schedule tasks effectively, aligning with MadHub's capabilities.
+```
+
+### Explanation
+The `build.gradle` configuration is designed to address the specific needs of an application that focuses on Instagram user collection, emphasizing MadHub's functionalities. Each dependency is selected based on its ability to solve real-world problems commonly encountered in social media management applications, and every comment highlights a problem before explaining how the configuration resolves it. This approach aligns with best practices for Android development while ensuring compliance with platform guidelines.
